@@ -6,15 +6,16 @@ module.exports = function(dir, ext, callback) {
 		var output;
 
 		if (err) {
-			console.error(err);
+			return callback(err);
+
 		} else {
 			output = [];
 			list.forEach(function(file) {
-				if (path.extname(file) === "."+ext) list.push(file);
+				if (path.extname(file) === "."+ext) output.push(file);
 			});
 		}
 
-		callback(err, output);
+		callback(null, output);
 
 	});
 }
