@@ -7,8 +7,7 @@ if (! url)
 http.get(url, function(stream) {
 
 	stream.setEncoding('utf8');
-	stream.on('data', function(data) {
-		console.log(data);	
-	});
+	stream.on('data', console.log);
+	stream.on('error', console.error);
 
 });
